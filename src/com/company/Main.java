@@ -7,33 +7,71 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // On affiche le nombre de couverts
-        System.out.println("Combien sont-ils ? ");
-        int couvert = sc.nextInt();
-        sc.nextLine();
+        // Initialisation des demandes
+        String plat = " ";
+
+
+        // Stockage des données dans un tableau
+        int[] Quantites = new int[5];
+        String[] Plats = new String[5];
+        float[] Produits = new float[5];
+
 
         // Boucle
-            for (int invite=0; invite<couvert;invite++)
+        for (int invite = 0; plat.length() > 0; invite++) {
 
-        {   // On affiche un message pour demander le plat
+            // Message pour demander le plat
             System.out.println("Entrez le plat : ");
-            String plat = sc.nextLine();
+            plat = sc.nextLine();
 
-            // On affiche un message pour demander le prix du plat
-            System.out.println("Prix du plat ? ");
-            float prix = sc.nextFloat();
 
-            // On affiche un message pour demander la quantité
-            System.out.println("Quantité ? ");
-            int quantite = sc.nextInt();
-            sc.nextLine();
+            if (plat.length() > 0) {
 
-            // Calcul et affichage du prix
-            float produit = (prix * quantite);
-            System.out.println("Total = " + produit);}
+                // Message pour demander le prix du plat
+                System.out.println("Prix du plat ? ");
+                float prix = sc.nextFloat();
+
+                // Message pour demander la quantité
+                System.out.println("Quantité ? ");
+                int quantite = sc.nextInt();
+                sc.nextLine();
+
+                // Calcul et affichage du prix
+                float produit = (prix * quantite);
+                System.out.println("Total = " + produit + " €");
+                float TotalFinal = produit + (prix * quantite);
+
+
+                // Remplissage du tableau
+                Quantites[invite] = quantite;
+                Plats[invite] = plat;
+                Produits[invite] = produit;
+
+            } else {
+                System.out.println(" ");
+            }
         }
 
-        // On ferme l'addition
-          sc.close();
+        // Ticket final
+       float[]produit =
+        System.out.println("----------Facture----------");
+
+        for (int facture = 0; facture < 5; facture++) {
+            System.out.print("x " + Quantites[facture] + "    ");
+            System.out.print(Plats[facture] + "    ");
+            System.out.print(Produits[facture] + " €");
+            int sum=IntStream.of(Produits).sum();
+            System.out.println(" ");
+            System.out.println("Total : "+sum);
+        }
+
+        System.out.println(" ");
+        System.out.println("Merci pour votre visite et à bientôt.");
+
+        sc.close();
     }
+}
+
+
+
 
