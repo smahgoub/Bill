@@ -10,12 +10,10 @@ public class Main {
         // Initialisation des demandes
         String plat = " ";
 
-
         // Stockage des données dans un tableau
-        int[] Quantites = new int[5];
-        String[] Plats = new String[5];
-        float[] Produits = new float[5];
-
+        int[] Quantites = new int[3];
+        String[] Plats = new String[3];
+        float[] Produits = new float[3];
 
         // Boucle
         for (int invite = 0; plat.length() > 0; invite++) {
@@ -39,8 +37,6 @@ public class Main {
                 // Calcul et affichage du prix
                 float produit = (prix * quantite);
                 System.out.println("Total = " + produit + " €");
-                float TotalFinal = produit + (prix * quantite);
-
 
                 // Remplissage du tableau
                 Quantites[invite] = quantite;
@@ -52,21 +48,22 @@ public class Main {
             }
         }
 
-        // Ticket final
-       float[]produit =
-        System.out.println("----------Facture----------");
+        float TotalFinal = 0;
 
-        for (int facture = 0; facture < 5; facture++) {
+        // Ticket final
+        System.out.println("------------------ Facture --------------------");
+        System.out.println(" ");
+        for (int facture = 0; facture < 3.; facture++) {
             System.out.print("x " + Quantites[facture] + "    ");
             System.out.print(Plats[facture] + "    ");
             System.out.print(Produits[facture] + " €");
-            int sum=IntStream.of(Produits).sum();
             System.out.println(" ");
-            System.out.println("Total : "+sum);
+            TotalFinal = Produits[facture] + TotalFinal;
         }
-
         System.out.println(" ");
-        System.out.println("Merci pour votre visite et à bientôt.");
+        System.out.println("Total : " + TotalFinal + " €");
+        System.out.println(" ");
+        System.out.println("---- Merci pour votre visite et à bientôt ----");
 
         sc.close();
     }
